@@ -3,12 +3,6 @@ using ReviewSamples.Modules.Variants;
 
 Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-if (args.Length > 0 && args[0].Equals("test-8", StringComparison.OrdinalIgnoreCase))
-{
-    Variant08_RestaurantChecks.RunAll();
-    return;
-}
-
 if (args.Length > 0 && int.TryParse(args[0], out var variantNumber))
 {
     RunVariant(variantNumber);
@@ -189,12 +183,7 @@ static void RunVariant(int n)
                 var s = new Variant08_RestaurantBad();
                 var o = new Variant08_Order { Table = 1 };
                 s.AddDish(o, new Variant08_Dish { N = "Soup", P = 350 }, 2);
-                Console.WriteLine($"Bad total: {s.Total(o)}");
-
-                var fixedService = new Variant08_RestaurantFixed();
-                var fixedOrder = new Variant08_OrderFixed(tableNumber: 1);
-                fixedService.AddDish(fixedOrder, new Variant08_DishFixed("Soup", 350m), 2);
-                Console.WriteLine($"Fixed total: {fixedService.CalculateTotal(fixedOrder):F2}");
+                Console.WriteLine($"Total: {s.Total(o)}");
                 break;
             }
         case 9:
