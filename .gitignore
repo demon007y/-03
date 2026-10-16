@@ -1,0 +1,14 @@
+.DS_Store
+
+# Build output
+bin/
+obj/
+
+# Runtime logs
+*.log
+
+# Accidentally created URL-like directory
+/https:/
+.vs/
+bin/
+obj/
